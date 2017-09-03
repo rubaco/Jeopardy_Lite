@@ -11,22 +11,19 @@
     let loadPoints;
 
     //Score
-    let correctAnswerCounter = "Score Counter";
+    let correctAnswerCounter = 0;
     let labelScore = $("#score").html(correctAnswerCounter);
     let previousAnswer;
 
-
-
-
     //function to generate new question
     generateNewQuestion();
-
+    console.log ("test")
     function generateNewQuestion() {
 
       $.get(newQuestion, function(data) {
 
         loadCategory = data[0].category.title;
-        loadValue = data[0].value
+        loadValue = parseInt(data[0].value);
         loadQuestion = data[0].question;
         loadAnswer = data[0].answer;
 
@@ -35,7 +32,7 @@
         console.log(loadAnswer);
         console.log(loadCategory);
 
-        let labelCategory = $("#category").html("Category: " + loadCategory);
+        let labelCategory = $("#category").html("Category: " + loadCategory.toUpperCase());
         let labelValue = $("#value").html("Points: " + loadValue);
         let labelQuestion = $("#question").html("Question: " + loadQuestion);
         //let labelAnswer = $("#answer").html(loadAnswer);
@@ -53,9 +50,10 @@
       if (trimUserGuess_textBox != "" ){
         if (trimUserGuess_textBox.toLowerCase() == loadAnswer.toLowerCase()){
 
-          correctAnswerCounter += 1;
+          correctAnswerCounter = correctAnswerCounter + loadValue;
           console.log("your answer: " + trimUserGuess_textBox + " matches: " + loadAnswer)
-          labelScore = $("#score").html("Score: " + correctAnswerCounter);
+          $("#score").html("");
+          labelScore = $("#score").html(correctAnswerCounter);
           previousAnswer = $("#previousAnswer").html("Correct!, the aswer is: " + loadAnswer);
 
 
