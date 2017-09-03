@@ -1,0 +1,41 @@
+body{
+
+  font-family: sans-serif;
+
+}
+
+h1{
+  display: block;
+  text-align: center;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  padding-top: 25px;
+}
+
+.scoreCounter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+
+}
+
+#userGuesses{
+  width: 500px;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+}
